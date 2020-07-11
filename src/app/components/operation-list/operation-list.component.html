@@ -1,0 +1,40 @@
+<div class="card my-5">
+    <div class="card-body">
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Medic</th>
+            <th scope="col">Patient</th>
+            <th scope="col">WorkType</th>
+            <th scope="col">TeethNumber</th>
+            <th scope="col">StartDate</th>
+            <th scope="col">DueDate</th>
+            <th scope="col">Emi</th>
+            <th scope="col">Paula</th>
+            <th scope="col">Timeea</th>
+            <th scope="col">ElementPrice</th>
+            <th scope="col">TotalPrice</th>
+            <th scope="col">WorkTypeName</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let operation of operations">
+            <td>{{ operation.id }}</td>
+            <td>{{ operation.medic }}</td>
+            <td>{{ operation.patient }}</td>
+            <td>{{ operation.worktype }}</td>
+            <td>{{ operation.teethNumber }}</td>
+            <td>{{ operation.startDate | date: 'yyyy-MM-dd'}}</td>
+            <td>{{ operation.dueDate | date: 'yyyy-MM-dd' }}</td>
+            <td>{{ operation.emi }}</td>
+            <td>{{ operation.paula }}</td>
+            <td>{{ operation.timeea }}</td>
+            <td>{{ operation.elementPrice }}</td>
+            <td>{{ operation.totalPrice }}</td>
+            <td>{{ operation.workTypeName }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

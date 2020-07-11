@@ -1,0 +1,96 @@
+<div class="card my-5">
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit()" #operationForm="ngForm">
+        <div class="form-group">
+          <label for="medic">Medic</label>
+          <input type="text" [(ngModel)]="operation.medic" 
+            class="form-control" 
+            id="medic" 
+            name="medic" 
+            placeholder="Enter medic name"
+            required #medic="ngModel">
+        </div>
+        <div [hidden]="!medic.pristine" class="alert alert-danger">Field is required</div>
+
+        <div class="form-group">
+          <label for="patient">Patient</label>
+          <input type="text" [(ngModel)]="operation.patient" 
+            class="form-control" 
+            id="patient" 
+            name="patient" 
+            placeholder="Enter patient name"
+            required #patient="ngModel">
+          <div [hidden]="!patient.pristine" class="alert alert-danger">Field is required</div>
+        </div>
+
+        <div class="form-group" >
+            <label for="worktype">Worktype</label><br>            
+            <select 
+            class="form-control" 
+            id="worktype" 
+            name="worktype"
+            [(ngModel)]="operation.worktype"
+             (change)="selectChangeHandler($event)">
+              <option selected="selected">Select worktype name </option>
+              <option value="METALO_CERAMICA">METALO_CERAMICA</option>
+              <option value="METALO_CERAMICA_ONE">METALO_CERAMICA_ONE</option>
+              <option value="MCP_FIZIONOMIC">MCP_FIZIONOMIC</option>
+              <option value="CERAMICA_ZIRKONIU">CERAMICA_ZIRKONIU</option>
+              <option value="EMAX">EMAX</option>
+              <option value="CERAMICA_SINTER">CERAMICA_SINTER</option>
+              <option value="DCR">DCR</option>
+              <option value="REPARATIE_PROTEZA">REPARATIE_PROTEZA</option>
+              <option value="PROTEZA_TOTALA">PROTEZA_TOTALA</option>
+              <option value="REBAZARE">REBAZARE</option>
+              <option value="MODEL_STUDIU">MODEL_STUDIU</option>
+              <option value="PROTEZA_SCHELETATA">PROTEZA_SCHELETATA</option>
+              <option value="PROVIZORII">PROVIZORII</option>
+              <option value="FREZ_BONT_IMPLANT">FREZ_BONT_IMPLANT</option>
+              <option value="ALLON_46">ALLON_46</option>
+              <option value="DCR_EMAX">DCR_EMAX</option>
+              <option value="GUTIERE">GUTIERE</option>
+            </select>  
+            <div class="alert alert-danger" *ngIf="validy()">
+              Field is required
+            </div>
+            <!-- <div [hidden]="!worktype.pristine" class="alert alert-danger">Field is required</div> -->
+          </div>
+
+          <div class="form-group">
+            <label for="teethNumber">TeethNumber</label>
+            <input type="number" [(ngModel)]="operation.teethNumber" 
+              class="form-control" 
+              id="teethNumber" 
+              name="teethNumber" 
+              placeholder="Enter teethNumber "
+              required #teethNumber="ngModel">
+            <div [hidden]="!teethNumber.pristine" class="alert alert-danger">Field is required</div>
+          </div>
+
+          <div class="form-group">
+            <label for="startDate">StartDate</label>
+            <input type="date" [(ngModel)]="operation.startDate" 
+              class="form-control" 
+              id="startDate" 
+              name="startDate" 
+              placeholder="Enter startDate "
+              required #startDate="ngModel">
+            <div [hidden]="!startDate.pristine" class="alert alert-danger">Field is required</div>
+          </div>
+
+          <div class="form-group">
+            <label for="dueDate">DueDate</label>
+            <input type="date" [(ngModel)]="operation.dueDate" 
+              class="form-control" 
+              id="dueDate" 
+              name="dueDate" 
+              placeholder="Enter dueDate "
+              required #dueDate="ngModel">
+            <div [hidden]="!dueDate.pristine" class="alert alert-danger">Field is required</div>
+          </div>
+
+        <button type="submit" [disabled]="!operationForm.form.valid" 
+          class="btn btn-info">Submit</button>
+      </form>
+    </div>
+  </div>
