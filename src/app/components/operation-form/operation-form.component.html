@@ -31,7 +31,7 @@
             name="worktype"
             [(ngModel)]="operation.worktype"
              (change)="selectChangeHandler($event)">
-              <option selected="selected">Select worktype name </option>
+              <option selected> Select worktype name </option>
               <option value="METALO_CERAMICA">METALO_CERAMICA</option>
               <option value="METALO_CERAMICA_ONE">METALO_CERAMICA_ONE</option>
               <option value="MCP_FIZIONOMIC">MCP_FIZIONOMIC</option>
@@ -53,7 +53,6 @@
             <div class="alert alert-danger" *ngIf="validy()">
               Field is required
             </div>
-            <!-- <div [hidden]="!worktype.pristine" class="alert alert-danger">Field is required</div> -->
           </div>
 
           <div class="form-group">
@@ -87,6 +86,20 @@
               placeholder="Enter dueDate "
               required #dueDate="ngModel">
             <div [hidden]="!dueDate.pristine" class="alert alert-danger">Field is required</div>
+          </div>
+
+          <div class="form-group" >
+            <label for="status">Status</label><br>            
+            <select 
+            class="form-control" 
+            id="status" 
+            name="status"
+            [(ngModel)]="operation.status"
+             (change)="selectStatusHandler($event)">
+              <option value = "nefinalizat" selected>Nefinalizat</option>
+              <option value="finalizat">Finalizat</option>
+            </select>  
+
           </div>
 
         <button type="submit" [disabled]="!operationForm.form.valid" 

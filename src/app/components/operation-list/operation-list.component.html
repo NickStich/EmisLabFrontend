@@ -15,9 +15,57 @@
             <th scope="col">Timeea</th>
             <th scope="col">ElementPrice</th>
             <th scope="col">TotalPrice</th>
-            <th scope="col">WorkTypeName</th>
+            <th scope="col"> Status </th>
           </tr>
         </thead>
+
+        <thead >
+          <tr>
+            <th scope="col">#</th>
+            <th><select scope="col">
+              <option value=null> -Select- </option>
+              <option  *ngFor="let operation of operations" value = operation.medic >{{operation.medic}}</option>
+            </select></th>
+
+            <th><select scope="col">
+              <option value=null> -Select- </option>
+              <option  *ngFor="let operation of operations" value = operation.patient >{{operation.patient}}</option>
+            </select></th>
+
+            <th><select scope="col">
+              <option value=null> -Select- </option>
+              <option  *ngFor="let operation of operations" value = operation.worktype >{{operation.worktype}}</option>
+            </select></th>
+
+            <th><select scope="col">
+              <option value=null> -Select- </option>
+              <option  *ngFor="let operation of operations" value = operation.teethNumber >{{operation.teethNumber}}</option>
+            </select></th>
+
+            
+            <th><select scope="col">
+              <option value=null> -Select- </option>
+              <option  *ngFor="let operation of operations" value = operation.startDate >{{operation.startDate | date: 'dd-MM-yyyy'}}</option>
+            </select></th>
+
+            <th><select scope="col">
+              <option value=null> -Select- </option>
+              <option  *ngFor="let operation of operations" value = operation.dueDate >{{operation.startDate | date: 'dd-MM-yyyy'}}</option>
+            </select></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+
+            <th><select scope="col">
+              <option value=null> -Select- </option>
+              <option  *ngFor="let operation of operations" value = operation.status >{{operation.status}}</option>
+            </select></th>
+
+          </tr>
+        </thead>
+
         <tbody>
           <tr *ngFor="let operation of operations">
             <td>{{ operation.id }}</td>
@@ -25,14 +73,14 @@
             <td>{{ operation.patient }}</td>
             <td>{{ operation.worktype }}</td>
             <td>{{ operation.teethNumber }}</td>
-            <td>{{ operation.startDate | date: 'yyyy-MM-dd'}}</td>
-            <td>{{ operation.dueDate | date: 'yyyy-MM-dd' }}</td>
+            <td>{{ operation.startDate | date: 'dd-MM-yyyy'}}</td>
+            <td>{{ operation.dueDate | date: 'dd-MM-yyyy' }}</td>
             <td>{{ operation.emi }}</td>
             <td>{{ operation.paula }}</td>
             <td>{{ operation.timeea }}</td>
             <td>{{ operation.elementPrice }}</td>
             <td>{{ operation.totalPrice }}</td>
-            <td>{{ operation.workTypeName }}</td>
+            <td>{{ operation.status }}</td>
           </tr>
         </tbody>
       </table>

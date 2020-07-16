@@ -11,5 +11,5 @@ export class Operation {
     timeea: number;
     elementPrice: number;
     totalPrice: number;
-    workTypeName: string;
+    status: string;
 }

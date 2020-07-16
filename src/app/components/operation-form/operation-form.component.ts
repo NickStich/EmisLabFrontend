@@ -8,7 +8,7 @@ import { OperationServiceService } from 'src/app/service/operation-service.servi
   templateUrl: './operation-form.component.html',
   styleUrls: ['./operation-form.component.css']
 })
-export class OperationFormComponent {
+export class OperationFormComponent implements OnInit {
 
 
   operation: Operation;
@@ -32,8 +32,17 @@ export class OperationFormComponent {
       this.operation.worktype = event.target.value;
     }
 
+    selectStatusHandler(event: any) {
+      this.operation.status = event.target.value;
+    }
+
     validy(): boolean{
-      return this.operation.worktype === undefined;
+      return this.operation.worktype === 'Select worktype name';
+    }
+
+    ngOnInit(): void{
+      this.operation.worktype = 'Select worktype name' ;
+      this.operation.status = 'nefinalizat';
     }
 
 }
